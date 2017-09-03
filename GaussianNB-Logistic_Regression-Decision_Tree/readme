@@ -1,0 +1,81 @@
+ 
+ 
+Assignment 1 
+CSE 343/543 : Machine Learning                    Due: 11:59PM, Aug. 28,2017 
+Note: ​ Please complete programming as well as theory component 
+ 
+Submission: ​ Code + theory.pdf (a legible copy of scanned answers to theory questions)  
+Problem Statement 
+You are given three small datasets: 
+●
+(part_A) A dataset with each datum being a 784 dimensional vector, and each datum has 
+one of 10 labels (in 0-9) 
+●
+(part_B) A dataset, with each datum being a 2048 dimensional vector, and each datum 
+having one of 2 labels (0 or 1) 
+●
+(part_C) A dataset, with each datum being 2 dimensional,  and each datum having one of 
+2 labels (0 or 1) 
+Programming Assignment [130 marks] 
+1.
+Visualise the three datasets. For this, you’ll need load the h5 files and use ​ t-SNE  ​ to plot 
+the data. Use ​ sklearn’s ​  implementation of ​ t-SNE ​ . You are free to use any parameters so 
+that the plots make sense. 
+2. For the second part you need to use GaussianNB, LogisticRegression & 
+DecisionTreeClassifier in ​ sklearn  ​ and train them on the training h5 files.  
+a. For each model use grid search (to be written by you, not using ​ sklearn ​ ’s 
+implementation) on the parameters to find the optimal parameters.  
+b. Use k-fold cross validation (to be written by you, not using ​ sklearn ​ ’s 
+implementation) to evaluate the accuracy of each parameter in the grid (Value of k 
+is  to be determined by you) 
+c. Plot the validation accuracy vs the parameters in the grid, and save your plots (one 
+for each dataset) in the Plots folder, each in a different plot. Note that plots are to 
+be made for all models across all datasets, so 9 plot files. 
+d. Save the best model (for each dataset) in the Weights folder. You can serialize the 
+model in any way you want ( preferred: sklearn’s joblib function to save models as 
+  
+ 
+pickled files). Load the saved model using ​ predict.py ​  to predict the results on 
+unlabeled data (again, for each dataset).  
+3. For this part, you need to implement all three models on your own and then repeat the 
+above question. You have to fill the Python classes given in the ​ Models ​  folder. Make sure 
+your classes are compatible with ​ sklearn ​ ’s classes. You should only change the import 
+statements by importing your own model classes instead of ​ sklearn’s ​  and the code 
+should work. ​ Using ​ sklearn  ​ for this part is strictly not allowed (not even importing it); 
+only ​ scipy  ​ and ​ numpy  ​ can be used for this part. 
+Template Details 
+A code template has been provided to you. You are expected to write implementations for all of 
+the functions written in these files. The structure is: 
+● train.py 
+● predict.py 
+● tests.py 
+● visualize.py 
+● Weights/ 
+● Plots/ 
+● Data/ 
+●
+○ partA_train.h5 
+○ partB_train.h5 
+○ partC_train.h5 
+Models/ 
+○ GaussianNB.py 
+○ LogisticRegression.py 
+○ DecisionTreeClassifier.py 
+ 
+1.
+The basis for picking a specific model for the dataset has to be given, ​ i.e. ​ , the report must 
+include graphs, along with appropriate explanations. These graphs are validation 
+accuracy v/s hyper-parameters (used in grid-search). 
+2. Any submission with changes to the directory structure in the given template will not be 
+evaluated. 
+3. No other imports other than the ones already defined in the files may be used (apart from 
+os ​  ). Any code that fails to run because of any other added import/missing package will 
+not be evaluated. 
+4. As announced on Backpack, python 2.7 is to be used. 
+5. Comments are expected to be added in code for all non-trivial part of code written by 
+you.  
+ 
+6. Example command for training gaussian model for partA: 
+python train.py --model_name GaussianNB --weights_path Weights/save_model_A 
+--train_data Data/partA_train.h5 --plots_save_dir Plots/  
+
